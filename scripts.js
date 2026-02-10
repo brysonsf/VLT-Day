@@ -1,8 +1,3 @@
-const jackpotCombos = [
-  ["❤️", "💸", "💑"],
-  ["🥰", "💸", "💰"],
-  ["🤑", "🤑", "🤑"]
-];
 const names = [
   { text: "Courtney", emoji: "💗" },
   { text: "Pretty Lady", emoji: "💃" },

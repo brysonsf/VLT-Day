@@ -3,9 +3,6 @@ const jackpotCombos = [
   ["🥰", "💸", "💰"],
   ["🤑", "🤑", "🤑"]
 ];
-
-let forcedJackpot=null;
-
 const names = [
   { text: "Courtney", emoji: "💗" },
   { text: "Pretty Lady", emoji: "💃" },
@@ -80,10 +77,33 @@ function spinReel(reel, arr, duration, finalItem) {
 
 document.getElementById("spinBtn").addEventListener("click", () => {
   spinCount++;
+  const finalName = null;
+  const finalAdj = null;
+  const finalOutcome = null;
+  
+  // Jackpot
+  if (spinCount >= 10) {
+    message = "💖 JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
+    const isJackpot = spinCount >= 10;
+    if (isJackpot) {
+      forcedJackpot = jackpotCombos[Math.floor(Math.random() * jackpotCombos.length)];
+    }
 
-  const finalName = randomItem(names);
-  const finalAdj = randomItem(adjectives);
-  const finalOutcome = randomItem(outcomes);
+    if (isJackpot) {
+      result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
+      triggerJackpot();
+      finalName = "❤️";
+      finalAdj = "💸";
+      finalOutcome = "💑";
+    }
+          document.body.style.background = "hotpink";
+  } else {
+    finalName = randomItem(names);
+    finalAdj = randomItem(adjectives);
+    finalOutcome = randomItem(outcomes);
+  }
+  
+   
 
   spinReel(reelName, names, 1500, finalName);
   spinReel(reelAdj, adjectives, 2000, finalAdj);
@@ -91,7 +111,7 @@ document.getElementById("spinBtn").addEventListener("click", () => {
 
    setTimeout(() => {
     let message = `${finalName.text} you are ${finalAdj.text} and ${finalOutcome.text}`;
-lever.style.transform = "rotate(0deg)";
+    lever.style.transform = "rotate(0deg)";
     if (spinCount >= 3) {
       message += " 😳";
     }
@@ -99,20 +119,7 @@ lever.style.transform = "rotate(0deg)";
       message = "💖 " + message.toUpperCase() + " 💖";
     }
 
-    // Jackpot
-    if (spinCount >= 10) {
-      message = "💖 JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
-      const isJackpot = spinCount >= 10;
-      if (isJackpot) {
-        forcedJackpot = jackpotCombos[Math.floor(Math.random() * jackpotCombos.length)];
-      }
-
-if (isJackpot) {
-  result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
-  triggerJackpot();
-}
-      document.body.style.background = "hotpink";
-    }
+    
 
     result.textContent = message;
   }, 2200);

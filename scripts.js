@@ -72,10 +72,9 @@ function spinReel(reel, arr, duration, finalItem) {
 
 document.getElementById("spinBtn").addEventListener("click", () => {
   spinCount++;
-  const finalName = null;
-  const finalAdj = null;
-  const finalOutcome = null;
-  
+  const finalName = randomItem(names);
+  const finalAdj = randomItem(adjectives);
+  const finalOutcome = randomItem(outcomes);
   // Jackpot
   if (spinCount >= 10) {
     message = "💖 JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
@@ -87,15 +86,8 @@ document.getElementById("spinBtn").addEventListener("click", () => {
     if (isJackpot) {
       result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
       triggerJackpot();
-      finalName = "❤️";
-      finalAdj = "💸";
-      finalOutcome = "💑";
     }
-          document.body.style.background = "hotpink";
-  } else {
-    finalName = randomItem(names);
-    finalAdj = randomItem(adjectives);
-    finalOutcome = randomItem(outcomes);
+    document.body.style.background = "hotpink";
   }
   
    
@@ -104,19 +96,17 @@ document.getElementById("spinBtn").addEventListener("click", () => {
   spinReel(reelAdj, adjectives, 2000, finalAdj);
   spinReel(reelOut, outcomes, 3000, finalOutcome);
 
-   setTimeout(() => {
-    let message = `${finalName.text} you are ${finalAdj.text} and ${finalOutcome.text}`;
-    lever.style.transform = "rotate(0deg)";
-    if (spinCount >= 3) {
-      message += " 😳";
-    }
-    if (spinCount >= 5) {
-      message = "💖 " + message.toUpperCase() + " 💖";
-    }
+ setTimeout(() => {
+  let message = `${finalName.text} you are ${finalAdj.text} and ${finalOutcome.text}`;
+  lever.style.transform = "rotate(0deg)";
+  if (spinCount >= 3) {
+    message += " 😳";
+  }
+  if (spinCount >= 5) {
+    message = "💖 " + message.toUpperCase() + " 💖";
+  }
 
-    
-
-    result.textContent = message;
+  result.textContent = message;
   }, 2200);
 });
 

@@ -1,5 +1,3 @@
-// just for codepen
-import confetti from "https://esm.sh/canvas-confetti";
 
 const names = [
   { text: "Courtney", emoji: "💗" },

@@ -124,7 +124,7 @@ function triggerJackpot() {
   sound.play();
   */
   // Confetti
-  if (typeof confetti === "function") {
+  if (window.confetti) {
     confetti({
       particleCount: 200,
       spread: 100,

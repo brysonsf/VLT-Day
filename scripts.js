@@ -84,7 +84,7 @@ document.getElementById("spinBtn").addEventListener("click", () => {
 
    setTimeout(() => {
     let message = `${finalName.text} you are ${finalAdj.text} and ${finalOutcome.text}`;
-lever.style.transform = "rotate(0deg)";
+    lever.style.transform = "rotate(0deg)";
     if (spinCount >= 3) {
       message += " 😳";
     }
@@ -95,13 +95,10 @@ lever.style.transform = "rotate(0deg)";
     // Jackpot
     if (spinCount >= 10) {
       message = "💖 JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
-      const isJackpot = spinCount >= 10;
-
-if (isJackpot) {
-  result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
-  triggerJackpot();
-}
-      document.body.style.background = "hotpink";
+    
+        result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
+        triggerJackpot();
+        document.body.style.background = "hotpink";
     }
 
     result.textContent = message;

@@ -1,3 +1,10 @@
+const jackpotCombos = [
+  ["❤️", "💸", "💑"],
+  ["🥰", "💸", "💰"],
+  ["🤑", "🤑", "🤑"]
+];
+
+let forcedJackpot=null;
 
 const names = [
   { text: "Courtney", emoji: "💗" },
@@ -96,6 +103,9 @@ lever.style.transform = "rotate(0deg)";
     if (spinCount >= 10) {
       message = "💖 JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
       const isJackpot = spinCount >= 10;
+      if (isJackpot) {
+        forcedJackpot = jackpotCombos[Math.floor(Math.random() * jackpotCombos.length)];
+      }
 
 if (isJackpot) {
   result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
@@ -114,7 +124,7 @@ function triggerJackpot() {
   document.querySelectorAll(".reel").forEach(r => {
     r.classList.add("jackpot");
   });
-
+  
   for (let i = 0; i < 30; i++) {
     setTimeout(spawnHeart, i * 1000);
   }
@@ -141,6 +151,7 @@ function triggerJackpot() {
   } else {
     console.error("Confetti failed to load");
   }
+  
 }
 const heartContainer = document.getElementById("heart-container");
 

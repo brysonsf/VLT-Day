@@ -12,13 +12,21 @@ body {
   background: linear-gradient(145deg, #ff4fa3, #ff8fcf);
   padding: 70px 30px 50px;
   border-radius: 30px;
-  width: 420px;
   text-align: center;
   position: relative;
   margin: 50px auto;
   box-shadow: 0 20px 0 #d63384, 0 35px 40px rgba(0,0,0,.4), inset 0 5px 10px rgba(255,255,255,.4);
   border: 6px solid #ffb3dd;
+  max-width: 480px;     /* desktop cap */
+  width: 90vw;          /* scale with viewport */
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;  /* keeps it proportional */
   /*z-index:2*/
+}
+#slotMachine img, #slotMachine > * {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .slot-machine::before {
   content: "";
@@ -371,5 +379,86 @@ body {
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+/* ============================= */
+/* Tablets & small laptops */
+/* ============================= */
+@media (max-width: 900px) {
+  #valentineOverlay h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  #valentineButtons {
+    gap: 24px;
+  }
+
+  #yesBtn, #noBtn {
+    padding: 16px 32px;
+    font-size: 1.3rem;
+  }
+
+  #valentineReveal img {
+    max-width: 200px;
+  }
+
+  #valentineReveal h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ============================= */
+/* Phones */
+/* ============================= */
+@media (max-width: 600px) {
+  #valentineOverlay {
+    padding: 20px;
+  }
+
+  #valentineOverlay h1 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  #valentineButtons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #yesBtn, #noBtn {
+    width: 80vw;
+    max-width: 320px;
+    padding: 18px;
+    font-size: 1.2rem;
+  }
+
+  #valentineReveal img {
+    max-width: 70vw;
+  }
+
+  #valentineReveal h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
+/* ============================= */
+/* Tiny phones */
+/* ============================= */
+@media (max-width: 380px) {
+  #valentineOverlay h1 {
+    font-size: 1.6rem;
+  }
+
+  #yesBtn, #noBtn {
+    font-size: 1.1rem;
+    padding: 14px;
+  }
+
+  #valentineReveal h2 {
+    font-size: 1.2rem;
   }
 }

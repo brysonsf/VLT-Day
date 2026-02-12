@@ -338,6 +338,10 @@ body {
   top: 50%;
   transform: translate(10%, -50%);
 }
+#valentineOverlay,
+#valentineReveal {
+  display: none;
+}
 #valentineReveal {
   display: none;
   flex-direction: column;

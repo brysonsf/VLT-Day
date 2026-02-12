@@ -287,3 +287,86 @@ body {
   from { transform: translateY(0) scale(1); opacity: 0.8; }
   to { transform: translateY(-110vh) scale(1.5); opacity: 0; }
 }
+#valentineOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 10, 30, 0.92);
+  backdrop-filter: blur(6px);
+  color: white;
+  font-family: "Comic Sans MS", cursive;
+}
+
+#valentineOverlay h1 {
+  font-size: 3rem;
+  margin-bottom: 80px;
+  text-shadow: 0 0 25px hotpink;
+}
+
+#valentineButtons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#yesBtn, #noBtn {
+  position: absolute;
+  padding: 18px 40px;
+  font-size: 1.6rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff4d6d, #ffb703);
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-110%, -50%);
+}
+
+#noBtn {
+  background: #333;
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(10%, -50%);
+}
+#valentineReveal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  animation: popIn 0.8s ease;
+}
+
+#valentineReveal img {
+  max-width: 240px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(255,105,180,0.4);
+}
+
+#valentineReveal h2 {
+  font-size: 2rem;
+  color: whitesmoke;
+  text-shadow: 0 0 12px rgba(255,105,180,.6);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(.6) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

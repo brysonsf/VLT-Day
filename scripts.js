@@ -99,8 +99,11 @@ document.getElementById("spinBtn").addEventListener("click", () => {
         result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
         triggerJackpot();
         document.body.style.background = "hotpink";
+        if(spinCount===10)
+        setTimeout(() => {
+          revealValentine();
+        }, 2500); // 2000 milliseconds = 2 seconds
     }
-
     result.textContent = message;
   }, 2200);
 });
@@ -166,9 +169,72 @@ const lever = document.getElementById("lever");
 lever.addEventListener("mousedown", () => {
   // Pull lever down
   lever.style.transform = "rotate(60deg)";
-  
-
   // Trigger spin
   document.getElementById("spinBtn").click();
-  
+});
+function revealValentine() {
+  const overlay = document.getElementById("valentineOverlay");
+  overlay.style.display = "flex";
+  startRunawayButton();
+}
+
+function startRunawayButton(){
+
+  const no = document.getElementById("noBtn");
+
+  let offsetX = 0;
+  let offsetY = 0;
+  const safeRadius = 100; // mouse must stay this far from the button
+
+  document.addEventListener("mousemove", e => {
+    const rect = no.getBoundingClientRect();
+    const btnX = rect.left + rect.width / 2;
+    const btnY = rect.top + rect.height / 2;
+
+    const dx = btnX - e.clientX;
+    const dy = btnY - e.clientY;
+    const dist = Math.hypot(dx, dy);
+
+    if (dist < safeRadius) {
+      const angle = Math.atan2(dy, dx);
+
+      // Move only as much as needed to be outside the radius
+      const move = safeRadius - dist;
+      offsetX += Math.cos(angle) * move;
+      offsetY += Math.sin(angle) * move;
+
+      no.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+
+      const curr = no.getBoundingClientRect();
+      
+      const currX = curr.left + rect.width / 2;
+      const currY = curr.top + rect.height / 2;
+      if(currX>window.innerWidth){
+        offsetX-=curr.width / 2;
+      }
+      if(currX<0){
+        offsetX+=curr.width / 2;
+      }
+      
+      if(currY>window.innerHeight){
+        offsetY-=curr.height / 2;
+      }
+
+      if(currY<0){
+        offsetY+=curr.height / 2;
+      }
+      no.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+
+    }
+  });
+}
+document.getElementById("yesBtn").addEventListener("click", () => {
+  // hide the overlay
+  document.getElementById("valentineOverlay").style.display = "none";
+
+  // show the celebration above the slot machine
+  document.getElementById("valentineReveal").style.display = "flex";
+
+  // optional: confetti energy
+  document.body.classList.add("valentine-win");
 });

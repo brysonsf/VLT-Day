@@ -238,3 +238,22 @@ document.getElementById("yesBtn").addEventListener("click", () => {
   // optional: confetti energy
   document.body.classList.add("valentine-win");
 });
+
+const photos = document.querySelectorAll('.photo');
+const collage = document.querySelector('.valentine-collage');
+
+photos.forEach(photo => {
+  photo.addEventListener('click', () => {
+    const isActive = photo.classList.contains('featured');
+
+    // Reset all
+    photos.forEach(p => p.classList.remove('featured'));
+    collage.classList.remove('dim');
+
+    // Activate clicked if it wasn't already
+    if (!isActive) {
+      photo.classList.add('featured');
+      collage.classList.add('dim');
+    }
+  });
+});

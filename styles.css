@@ -462,3 +462,100 @@ body {
     font-size: 1.2rem;
   }
 }
+/* Collage Stuff */
+.valentine-collage {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 160px;
+  gap: 14px;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.photo {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffd6e9;
+  box-shadow:
+    0 10px 30px rgba(255, 0, 120, 0.25),
+    0 0 20px rgba(255, 100, 180, 0.35);
+  transform: rotate(-1deg);
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(.2,.9,.3,1.2), box-shadow 0.4s;
+}
+.photo.featured {
+  position: relative;
+  z-index: 10;
+  transform: scale(1.18) rotate(0deg) !important;
+  box-shadow:
+    0 25px 60px rgba(255, 0, 120, 0.6),
+    0 0 60px rgba(255, 150, 220, 0.8);
+}
+
+/* Soft background dim */
+.valentine-collage.dim .photo:not(.featured) {
+  filter: brightness(0.6) blur(1px);
+  transform: scale(0.95);
+}
+.photo:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow:
+    0 15px 40px rgba(255, 0, 120, 0.45),
+    0 0 40px rgba(255, 150, 200, 0.6);
+  z-index: 5;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Big hero photo */
+.photo.big {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+.photo.span-2 {
+  grid-row: span 2;
+  grid-column: span 3;
+}
+/* Layout tuning for smaller photos */
+.photo:nth-child(2) {
+  grid-column: span 2;
+}
+
+.photo:nth-child(3) {
+  grid-column: span 2;
+}
+
+.photo:nth-child(4) {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.photo:nth-child(5) {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+.tilt-left {
+  transform: rotate(-1.5deg);
+}
+
+.tilt-right {
+  transform: rotate(1.5deg);
+}
+/* Mobile */
+@media (max-width: 700px) {
+  .valentine-collage {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 180px;
+  }
+
+  .photo.big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}

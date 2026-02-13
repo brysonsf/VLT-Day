@@ -94,9 +94,9 @@ document.getElementById("spinBtn").addEventListener("click", () => {
 
     // Jackpot
     if (spinCount >= 10) {
-      message = "💖 JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
+      message += "JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
     
-        result.textContent = "💖 JACKPOT 💖 YOU ARE MY VALENTINE FOREVER AND ALWAYS";
+        result.textContent += message;
         triggerJackpot();
         document.body.style.background = "hotpink";
         if(spinCount===10)

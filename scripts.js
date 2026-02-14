@@ -89,17 +89,17 @@ document.getElementById("spinBtn").addEventListener("click", () => {
       message += " 😳";
     }
     if (spinCount >= 5) {
-      message = "💖 " + message.toUpperCase() + " 💖";
+      message = "💖 " + message + " 💖";
     }
 
     // Jackpot
-    if (spinCount >= 10) {
+    if (spinCount >= 5) {
       message += "JACKPOT 💖 YOU ARE MY VALENTINE. THERE IS NO ESCAPE.";
     
         result.textContent += message;
         triggerJackpot();
         document.body.style.background = "hotpink";
-        if(spinCount===10)
+        if(spinCount===5)
         setTimeout(() => {
           revealValentine();
         }, 2500); // 2000 milliseconds = 2 seconds

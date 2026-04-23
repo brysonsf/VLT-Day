@@ -1,0 +1,24 @@
+name: 🧩 Task
+description: General work item
+labels: ["task"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ] Thing is done
+        - [ ] Tests pass
+        - [ ] Reviewed
+
+  - type: input
+    id: related
+    attributes:
+      label: Related Issues / PRs

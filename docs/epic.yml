@@ -1,0 +1,33 @@
+name: 🚀 Epic
+description: Large feature or initiative
+labels: ["epic"]
+body:
+  - type: textarea
+    id: overview
+    attributes:
+      label: Overview
+    validations:
+      required: true
+
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      placeholder: |
+        In scope:
+        -
+        Out of scope:
+        -
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Child Issues
+      placeholder: |
+        - [ ] #123
+        - [ ] #124

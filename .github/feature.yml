@@ -1,3 +1,4 @@
+---
 name: ✨ Feature Request
 description: Suggest a new feature or improvement
 labels: ["enhancement"]
@@ -26,3 +27,4 @@ body:
     id: additional
     attributes:
       label: Additional context
+---
